@@ -1,0 +1,345 @@
+/* ===== 全体 ===== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Noto Serif JP', serif;
+  background-color: #f4efe9;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* 画像のはみ出し事故予防 */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ===== ヘッダー ===== */
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px 30px;
+  background-color: #f7f2ec;
+}
+
+/* ===== ロゴ ===== */
+.logo {
+  position: relative;              /* ← ::after のために必須 */
+  display: inline-block;           /* ← 線の幅・位置が安定 */
+  padding-bottom: 14px;            /* ← ロゴ下の線との距離 */
+  margin: 0;                       /* h1のデフォ余白を消す */
+  font-weight: 600;
+  font-size: 34px;
+  letter-spacing: 0.22em;
+
+  /* 絹っぽい艶のグラデ文字 */
+  background: linear-gradient(90deg, #5c4033, #b7a98c, #5c4033);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.logo::after {
+  content: "";
+  width: 120px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #c7b7a3, transparent);
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+/* ロゴ下の英字 */
+.tagline {
+  margin: 2px 0 0;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  color: #8a7768;
+}
+
+/* ===== ナビ ===== */
+nav {
+  margin-top: 18px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background: #6b5646;
+  transition: 0.3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ===== ファーストビュー ===== */
+.fv {
+  position: relative;
+  height: 85vh;
+  background-image: url("two-women.jpg");
+  background-size: cover;
+  background-position: 75% center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fv::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(60, 40, 30, 0.4);
+}
+
+.fv-content {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  padding: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.fv h2 {
+  margin: 0 0 20px;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: #f8f3ed;
+}
+
+.fv h2::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 1px;
+  margin: 18px auto 0;
+  background: linear-gradient(to right, transparent, #f3e8dc, transparent);
+}
+
+.fv p {
+  margin: 0 0 30px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ボタン（共通） */
+
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  background: linear-gradient(135deg, #5c4033, #7a5a45);
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  letter-spacing: 0.08em;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.btn:hover {
+  opacity: 0.85;
+}
+
+/* ===== コンセプト ===== */
+.concept {
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.catch {
+  font-size: 22px;
+  margin: 0 0 20px;
+  color: #4a382c;
+  line-height: 1.9;
+}
+
+.concept p {
+  margin: 0;
+  line-height: 1.9;
+}
+
+/* ===== セクションタイトル装飾（FVには効かせない） ===== */
+.plan h2,
+.gallery h2,
+.reserve h2,
+.concept h2 {
+  font-weight: 600;
+  text-align: center;
+  margin: 0 0 40px;
+  position: relative;
+  padding-bottom: 20px;
+  letter-spacing: 0.05em;
+  color: #5c4033;
+}
+
+.plan h2::after,
+.gallery h2::after,
+.reserve h2::after,
+.concept h2::after {
+  content: "";
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #b7a98c, transparent);
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+}
+
+.plan h2::after,
+.gallery h2::after,
+.reserve h2::after {
+  content: "";
+  width: 180px;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #b7a98c, transparent);
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+}
+
+/* ===== プラン ===== */
+.plan {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.plan-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.plan-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: 0.25s;
+  text-align: left;
+}
+
+.plan-card h3 {
+  margin: 0 0 10px;
+  color: #4a382c;
+}
+
+.plan-card p {
+  margin: 0;
+  line-height: 1.8;
+}
+
+.price {
+  font-weight: 700;
+  margin-top: 12px;
+  color: #5c4033;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== ギャラリー ===== */
+.gallery {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.gallery-lead {
+  margin: -20px 0 30px; /* タイトル下の線との距離調整 */
+  color: #6b5646;
+  line-height: 1.8;
+}
+
+.gallery-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.gallery img {
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+}
+
+/* ===== セクション余白統一（仕上げ調整） ===== */
+.plan,
+.gallery,
+.concept {
+  padding: 100px 20px;
+}
+
+/* ===== 予約ページ ===== */
+.reserve {
+  padding: 80px 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+label {
+  text-align: left;
+  color: #4a382c;
+  font-size: 14px;
+}
+
+input,
+select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  background: #fff;
+}
+
+button.btn {
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+/* ===== フッター ===== */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #5c4033;
+  color: #fff;
+  margin-top: 40px;
+}
